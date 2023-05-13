@@ -9,6 +9,6 @@ export const ssgHelper = () => {
 	return createProxySSGHelpers({
 		router: appRouter,
 		transformer: superjson,
-		ctx: createInnerTRPCContext({ session: null }),
+		ctx: createInnerTRPCContext({ session: null, revalidateSSG: null }),
 	});
 };

@@ -82,6 +82,10 @@ export const profileRouter = createTRPCRouter({
 				addedFollow = false;
 			}
 
+			// void means `don't wait for this functions`
+			void ctx.revalidateSSG?.(`/profiles/${userId}`);
+			void ctx.revalidateSSG?.(`/profiles/${currentUserId}`);
+
 			return { addedFollow };
 		}),
 });

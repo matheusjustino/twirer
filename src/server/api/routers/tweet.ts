@@ -20,6 +20,9 @@ export const tweetRouter = createTRPCRouter({
 				},
 			});
 
+			// void means `don't wait for this functions`
+			void ctx.revalidateSSG?.(`/profiles/${ctx.session.user.id}`);
+
 			return tweet;
 		}),
 	infiniteFeed: publicProcedure
